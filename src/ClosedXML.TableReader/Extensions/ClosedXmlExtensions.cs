@@ -6,10 +6,10 @@ namespace ClosedXML.Excel
     public static class ClosedXmlExtensions
     {
         /// <summary>
-        /// Obtiene el contenido de una celda evitando los espacios
+        /// Get cell content without spaces
         /// </summary>
-        /// <param name="cell"></param>
-        /// <param name="valueIfNull"></param>
+        /// <param name="cell">XLCell instance <see cref="IXLCell"/></param>
+        /// <param name="valueIfNull"> Set a default value to empty cells </param>
         /// <returns></returns>
         public static string GetContentWithOutSpaces(this IXLCell cell, string valueIfNull = "")
         {
@@ -19,10 +19,10 @@ namespace ClosedXML.Excel
         }
 
         /// <summary>
-        /// Obtiene un nombre válido para utilizar de nombre de un dataTable limitandolo a 50 cars
+        /// Get Worksheet name without spaces an limit it lenght
         /// </summary>
-        /// <param name="ws">IXLWorksheet</param>
-        /// <param name="maxNameLength"></param>
+        /// <param name="ws">IXLWorksheet instance <see cref="IXLWorksheet"/></param>
+        /// <param name="maxNameLength">Name max length</param>
         /// <returns></returns>
         public static string GetNameForDataTable(this IXLWorksheet ws,int maxNameLength=50)
         {

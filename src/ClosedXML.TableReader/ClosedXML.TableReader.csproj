@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>René Pacios</Authors>
+    <Company>www.WebRene.es</Company>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <NeutralLanguage>en</NeutralLanguage>
+    <Product>ClosedXML TableReader</Product>
+    <Description>ClosedXML TableReader is a ClosedXML library extension to allows developers read Excel Tables to dotnet DataTable or generic typed collection</Description>
+    <Copyright>Copyright 2017</Copyright>
+    <PackageTags>ClosedXML Table Read .NET Standard</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="ExcelReader.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Exceptions\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ClosedXML" Version="0.92.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="ClosedXML">
+      <HintPath>..\packages\ClosedXML.0.91.0\lib\net452\ClosedXML.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

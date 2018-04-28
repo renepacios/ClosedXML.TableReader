@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using ClosedXML.Excel;
@@ -8,7 +9,8 @@ using ClosedXML.TableReader.Model;
 
 namespace ClosedXML.TableReader
 {
-    public class ExcelReader : IExcelReader
+    [Obsolete("Use TableReader extensions methods")]
+    public class ExcelReader 
     {
         private readonly byte[] _file;
         protected XLWorkbook WorkBook;
@@ -59,7 +61,7 @@ namespace ClosedXML.TableReader
             using (MemoryStream ms = new MemoryStream(_file))
             {
                 WorkBook = new XLWorkbook(ms);
-                var ws= WorkBook.Worksheet(sheetNumber);
+                var ws = WorkBook.Worksheet(sheetNumber);
                 return ReadExcelSheet(ws, options);
             }
         }
@@ -71,9 +73,9 @@ namespace ClosedXML.TableReader
             {
                 WorkBook = new XLWorkbook(ms);
                 var ws = WorkBook.Worksheet(sheetNumber);
-                var dt= ReadExcelSheet(ws, options);
+                var dt = ReadExcelSheet(ws, options);
 
-                return dt.AsEnumerableTyped<T>();
+                return dt.AsEnumerableTyped<T>(options);
             }
         }
 
@@ -88,13 +90,26 @@ namespace ClosedXML.TableReader
 
             options = options ?? ReadOptions.DefaultOptions;
 
+            //TODO: Implementar opción con columnas sin títulos
+
             //primera fila de titulos
             bool firstRow = options.TitlesInFirstRow;
             dt.TableName = workSheet.GetNameForDataTable();
 
+            if (options.TitlesInFirstRow)
+            {
+                //si no tenemos títulos en la tabla utilizamos los nombres de columna del excel para la definición del DataTable
+                foreach (var col in workSheet.ColumnsUsed())
+                {
+                    dt.Columns.Add(col.ColumnLetter());
+                }
+            }
+
+
             foreach (IXLRow row in workSheet.RowsUsed())
             {
                 //Usamos la primera fila para crear las columnas con los títulos
+                //init with options.TitlesInFirstRow 
                 if (firstRow)
                 {
                     foreach (IXLCell cell in row.CellsUsed())
