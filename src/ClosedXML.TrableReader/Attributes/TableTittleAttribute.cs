@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BalNET.Infraestructure.ExcelReader.Attributes
+namespace ClosedXML.TableReader.Attributes
 {
     [System.AttributeUsage(System.AttributeTargets.Property)]
     public class TableTittleAttribute : Attribute

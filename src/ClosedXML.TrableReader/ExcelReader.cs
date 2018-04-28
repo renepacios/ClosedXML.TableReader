@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Data;
 using System.IO;
-using BalNET.Infraestructure.ExcelReader.Contracts;
-using BalNET.Infraestructure.ExcelReader.Extensions;
 using ClosedXML.Excel;
+using ClosedXML.TableReader.Contracts;
+using ClosedXML.TableReader.Extensions;
+using ClosedXML.TableReader.Model;
 
-namespace BalNET.Infraestructure.ExcelReader
+namespace ClosedXML.TableReader
 {
     public class ExcelReader : IExcelReader
     {

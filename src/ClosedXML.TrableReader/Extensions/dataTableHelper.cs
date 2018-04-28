@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Reflection;
-using BalNET.Infraestructure.ExcelReader.Attributes;
+using ClosedXML.TableReader.Attributes;
 
-namespace BalNET.Infraestructure.ExcelReader.Extensions
+namespace ClosedXML.TableReader.Extensions
 {
     public static class DataTableHelper
     {

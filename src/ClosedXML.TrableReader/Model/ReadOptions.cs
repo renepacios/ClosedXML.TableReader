@@ -1,4 +1,4 @@
-﻿namespace BalNET.Infraestructure.ExcelReader
+﻿namespace ClosedXML.TableReader.Model
 {
     public class ReadOptions
     {

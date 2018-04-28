@@ -1,7 +1,7 @@
 ﻿using System.Data;
-using ClosedXML.Excel;
+using ClosedXML.TableReader.Model;
 
-namespace BalNET.Infraestructure.ExcelReader.Contracts
+namespace ClosedXML.TableReader.Contracts
 {
     public interface IExcelReader
     {
