@@ -6,8 +6,10 @@ using System.Linq.Expressions;
 using ClosedXML.Excel;
 using ClosedXML.TableReader;
 using ClosedXML.TableReader.Model;
+using DocumentFormat.OpenXml.Drawing;
 using DocumentFormat.OpenXml.Drawing.Diagrams;
 using Net.Core.Sample.Models;
+using Path = System.IO.Path;
 
 namespace Net.Core.Sample
 {
@@ -22,20 +24,34 @@ namespace Net.Core.Sample
             var wb = new ClosedXML.Excel.XLWorkbook(new MemoryStream(bytes));
 
 
-            Expression<Func<string, DateTime>> f = _ => DateTime.Now.AddDays(10);
+
 
             var l = wb.ReadTable<Models.TableWithHeaders>(1,
                 new ReadOptions()
                 {
-                    TitlesInFirstRow = true,
-
-                    Converters = new Dictionary<string, LambdaExpression>()
-                    {
-                        {nameof(TableWithHeaders.Birthday), f}
-                    }
+                    TitlesInFirstRow = true
                 });
 
             Console.WriteLine(l.ToList().Count);
+
+
+            //Example with trasnformations
+            Expression<Func<string, DateTime>> fConvertData = _ => DateTime.Now.AddDays(10);
+            Expression<Func<string, bool>> fSelectToBool = c => c == "x";
+
+            var ls = wb.ReadTable<Models.TableWithHeadersAndBoleanConversion>(1,
+                new ReadOptions()
+                {
+                    TitlesInFirstRow = true,
+                    Converters = new Dictionary<string, LambdaExpression>()
+                    {
+                        {nameof(TableWithHeadersAndBoleanConversion.Birthday),fConvertData },
+                        {nameof(TableWithHeadersAndBoleanConversion.Selected),fSelectToBool },
+                    }
+                });
+
+
+            Console.WriteLine(ls.ToList().Count);
 
             Console.ReadLine();
         }

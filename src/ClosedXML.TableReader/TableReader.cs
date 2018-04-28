@@ -154,13 +154,13 @@ namespace ClosedXML.Excel
                         if (p == null) continue;
 
 
-                        
+
 
                         string GetFieldNameFromCustomAttribute()
                         {
                             var atts = p.CustomAttributes.FirstOrDefault(c => c.AttributeType == typeof(ColumnTittleAttribute)
                                                                           || c.AttributeType == typeof(ColumnNameAttribute));
-                            if (options==null || options.TitlesInFirstRow)
+                            if (options == null || options.TitlesInFirstRow)
                             {
                                 return atts != null && !string.IsNullOrEmpty(p.GetCustomAttribute<ColumnTittleAttribute>().Title)
                                        ? p.GetCustomAttribute<ColumnTittleAttribute>().Title.Replace(" ", string.Empty)
@@ -197,9 +197,13 @@ namespace ClosedXML.Excel
                     }
                     catch (Exception ex)
                     {
-                        PropertyInfo p = obj.GetType().GetProperty(prop.Name);
+                        if (System.Diagnostics.Debugger.IsAttached)
+                        {
+                            PropertyInfo p = obj.GetType().GetProperty(prop.Name);
 
-                        Console.WriteLine($"{ex.Message} {p.Name}");
+                            Console.WriteLine($"{ex.Message} {p.Name}");
+                        }
+
                         continue;
                     }
                 }
