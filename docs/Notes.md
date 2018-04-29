@@ -7,6 +7,8 @@
 **.gitignore templates**
   * https://github.com/github/gitignore
 
+**Nuget Host**
+  * https://docs.microsoft.com/es-es/nuget/quickstart/create-and-publish-a-package-using-visual-studio
 
 ## Resharper
 **.editorconfig**

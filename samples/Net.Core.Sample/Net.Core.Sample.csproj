@@ -6,11 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\ClosedXML.TableReader\ClosedXML.TableReader.csproj" />
+    <Folder Include="Excels\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Excels\" />
+    <ProjectReference Include="..\..\src\ClosedXML.TableReader\ClosedXML.TableReader.csproj" />
   </ItemGroup>
 
   <ItemGroup>

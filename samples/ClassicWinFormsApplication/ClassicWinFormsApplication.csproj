@@ -105,8 +105,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\src\ClosedXML.TableReader\ClosedXML.TableReader.csproj">
-      <Project>{1c7ab50a-456e-4786-bfba-b13f6a4870e7}</Project>
+    <ProjectReference Include="..\..\src\ClosedXML.TableReader\ClosedXML.TableReader.csproj">
+      <Project>{e016f8b1-fb18-4e00-a476-6b5ca0efb01a}</Project>
       <Name>ClosedXML.TableReader</Name>
     </ProjectReference>
   </ItemGroup>
