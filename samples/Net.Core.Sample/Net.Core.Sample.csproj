@@ -10,10 +10,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\ClosedXML.TableReader\ClosedXML.TableReader.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Update="Excels\TableWithHeaders.xlsx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

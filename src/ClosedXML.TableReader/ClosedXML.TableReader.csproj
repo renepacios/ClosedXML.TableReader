@@ -7,9 +7,15 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <NeutralLanguage>en</NeutralLanguage>
     <Product>ClosedXML TableReader</Product>
-    <Description>ClosedXML TableReader is a ClosedXML library extension to allows developers read Excel Tables to dotnet DataTable or generic typed collection</Description>
-    <Copyright>Copyright 2017</Copyright>
+    <Description>ClosedXML TableReader is a ClosedXML extension to read Excel tables to dotnet dataTable or generic typed collection</Description>
+    <Copyright>Copyright 2018</Copyright>
     <PackageTags>ClosedXML Table Read .NET Standard</PackageTags>
+    <RepositoryUrl></RepositoryUrl>
+    <PackageProjectUrl>https://github.com/rene15009/ClosedXML.TableReader</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/rene15009/ClosedXML.TableReader/blob/master/LICENSE</PackageLicenseUrl>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <Version>1.0.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
