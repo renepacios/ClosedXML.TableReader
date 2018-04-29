@@ -92,7 +92,7 @@ namespace ClosedXML.Excel
             bool firstRow = options.TitlesInFirstRow;
             dt.TableName = workSheet.GetNameForDataTable();
 
-            if (options.TitlesInFirstRow)
+            if (!options.TitlesInFirstRow)
             {
                 //si no tenemos títulos en la tabla utilizamos los nombres de columna del excel para la definición del DataTable
                 foreach (var col in workSheet.ColumnsUsed())
@@ -178,11 +178,13 @@ namespace ClosedXML.Excel
                         var fieldName = GetFieldNameFromCustomAttribute();
 
 
+                        //parseamos las celdas vacías que no contienen cadenas
+                        var objValue = row[fieldName];
+                        if (objValue == System.DBNull.Value) objValue = string.Empty;
+
                         //Converters to parse data to typed field
                         if (options?.Converters != null && options.Converters.Any() && options.Converters.ContainsKey(p.Name))
                         {
-
-                            var objValue = row[fieldName];
                             var exp = options.Converters[p.Name];
                             var f = exp.Compile();
                             p.SetValue(obj, Convert.ChangeType(f.DynamicInvoke(objValue), p.PropertyType), null);
@@ -190,7 +192,7 @@ namespace ClosedXML.Excel
                         else
                         {
                             p.SetValue(obj,
-                                Convert.ChangeType(row[fieldName], p.PropertyType), null);
+                                Convert.ChangeType(objValue, p.PropertyType), null);
                         }
 
 
