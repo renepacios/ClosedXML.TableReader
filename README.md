@@ -10,15 +10,17 @@ PM> Install-Package ClosedXML.TableReader
 ```
 
 
-## .NET Framework suport
+### .NET Framework suport
 
 ClosedXML.TableReader supports the `4.0+ .NET Framework` as well as `.NET Core`
 
+
 ## Get Started
 
+*Coming soon*
 
 
-## Release Notes
+### Release Notes
 
 #### License
 ClosedXML.TableReader is licensed under The MIT License (MIT), check the [LICENSE](https://github.com/rene15009/ClosedXML.TableReader/blob/master/LICENSE) file for details.
