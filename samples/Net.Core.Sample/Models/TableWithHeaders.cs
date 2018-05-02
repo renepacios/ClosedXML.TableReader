@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -14,7 +15,7 @@ namespace Net.Core.Sample.Models
         public int Number { get; set; } 
         public string Name { get; set; }
 
-        [ColumnTittle("Birthday date")]
+        [DisplayName("Birthday date")]
         public DateTime Birthday { get; set; }
 
         public DateTime ADate { get; set; }

@@ -9,6 +9,7 @@ namespace ClosedXML.TableReader.Attributes
     /// </remarks>
     /// </summary>
     [System.AttributeUsage(System.AttributeTargets.Property)]
+    [Obsolete("Use DisplayName")]
     public class ColumnTittleAttribute : Attribute
     {
         public string Title { get; set; }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Reflection;
@@ -159,16 +160,32 @@ namespace ClosedXML.Excel
                         string GetFieldNameFromCustomAttribute()
                         {
                             var atts = p.CustomAttributes.FirstOrDefault(c => c.AttributeType == typeof(ColumnTittleAttribute)
-                                                                          || c.AttributeType == typeof(ColumnNameAttribute));
+                                                                          || c.AttributeType == typeof(ColumnNameAttribute)
+                                                                          || c.AttributeType == typeof(DisplayNameAttribute)
+                                                                              );
+
+
                             if (options == null || options.TitlesInFirstRow)
                             {
-                                return atts != null && !string.IsNullOrEmpty(p.GetCustomAttribute<ColumnTittleAttribute>().Title)
-                                       ? p.GetCustomAttribute<ColumnTittleAttribute>().Title.Replace(" ", string.Empty)
-                                       : p.Name;
+                                //TODO: Refact when remove ColumnTitleAttribute Support
+
+                                if (atts == null)
+                                {
+                                    return p.Name;
+                                }
+
+                                if (!string.IsNullOrEmpty(p.GetCustomAttribute<DisplayNameAttribute>()?.DisplayName))
+                                {
+                                    return p.GetCustomAttribute<DisplayNameAttribute>().DisplayName.Replace(" ", string.Empty);
+                                }
+
+                                return !string.IsNullOrEmpty(p.GetCustomAttribute<ColumnTittleAttribute>()?.Title)
+                                    ? p.GetCustomAttribute<ColumnTittleAttribute>().Title.Replace(" ", string.Empty)
+                                    : p.Name;
                             }
                             else
                             {
-                                return atts != null && !string.IsNullOrEmpty(p.GetCustomAttribute<ColumnNameAttribute>().ColumnName)
+                                return atts != null && !string.IsNullOrEmpty(p.GetCustomAttribute<ColumnNameAttribute>()?.ColumnName)
                                     ? p.GetCustomAttribute<ColumnNameAttribute>().ColumnName
                                     : p.Name;
                             }

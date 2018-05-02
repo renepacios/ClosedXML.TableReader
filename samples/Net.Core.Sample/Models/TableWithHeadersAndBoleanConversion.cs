@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using ClosedXML.TableReader.Attributes;
 
 namespace Net.Core.Sample.Models
@@ -8,7 +9,7 @@ namespace Net.Core.Sample.Models
         public int Number { get; set; }
         public string Name { get; set; }
 
-        [ColumnTittle("Birthday date")]
+        [DisplayName("Birthday date")]
         public DateTime Birthday { get; set; }
 
         public DateTime ADate { get; set; }
