@@ -111,7 +111,7 @@ namespace ClosedXML.Excel
                 {
                     foreach (IXLCell cell in row.CellsUsed())
                     {
-                        dt.Columns.Add(cell.GetContentWithOutSpaces());
+                        dt.Columns.Add(cell.Value?.ToString());
                     }
                     firstRow = false;
                 }
@@ -176,11 +176,11 @@ namespace ClosedXML.Excel
 
                                 if (!string.IsNullOrEmpty(p.GetCustomAttribute<DisplayNameAttribute>()?.DisplayName))
                                 {
-                                    return p.GetCustomAttribute<DisplayNameAttribute>().DisplayName.Replace(" ", string.Empty);
+                                    return p.GetCustomAttribute<DisplayNameAttribute>().DisplayName;
                                 }
 
                                 return !string.IsNullOrEmpty(p.GetCustomAttribute<ColumnTittleAttribute>()?.Title)
-                                    ? p.GetCustomAttribute<ColumnTittleAttribute>().Title.Replace(" ", string.Empty)
+                                    ? p.GetCustomAttribute<ColumnTittleAttribute>().Title
                                     : p.Name;
                             }
                             else
