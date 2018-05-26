@@ -1,4 +1,4 @@
-﻿# Markdown File
+﻿# ClosedXML.TableReader
 
 ClosedXml is an amazing .NET library to manage Excel files based on [OpenXML Standard](https://es.wikipedia.org/wiki/Office_Open_XML). This component drastically reduces the complexity of working with [Open XML SDK](https://www.microsoft.com/en-us/download/details.aspx?id=30425) 
 
