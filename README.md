@@ -17,7 +17,6 @@ ClosedXML.TableReader supports the `4.0+ .NET Framework` as well as `.NET Core`
 
 ## Get Started
 
-*Coming soon*
 
 
 ### Release Notes
