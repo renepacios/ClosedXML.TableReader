@@ -1,4 +1,4 @@
-# ClosedXML.TableReader
+# ClosedXML Excel Table Reader
 ClosedXML Table Reader is a ClosedXML library extension to allows developers Read Excel Tables to dotnet DataTable or generic typed collection
 
 ## Install
