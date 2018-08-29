@@ -29,9 +29,3 @@ ClosedXML.TableReader is licensed under The MIT License (MIT), check the [LICENS
 #### Development
 C# 
 
-
-```sequence
-Alice->Bob: Hello Bob, how are you?
-Note right of Bob: Bob thinks
-Bob-->Alice: I am good thanks!
-```
