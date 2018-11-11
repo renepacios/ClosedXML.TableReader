@@ -1,7 +1,10 @@
 # ClosedXML Excel Table Reader  
-[![NuGet](https://img.shields.io/nuget/dt/ClosedXML.TableReader.svg)](https://www.nuget.org/packages/ClosedXML.TableReader/)
-
 ClosedXML Table Reader is a ClosedXML library extension to allows developers Read Excel Tables to dotnet DataTable or generic typed collection
+[![NuGet](https://img.shields.io/nuget/dt/ClosedXML.TableReader.svg?style=plastic)]
+(https://www.nuget.org/packages/ClosedXML.TableReader/)
+
+[![NuGet](https://img.shields.io/nuget/v/ClosedXML.TableReader.svg?style=plastic)](https://www.nuget.org/packages/ClosedXML.TableReader/)
+
 
 ## Install
 
