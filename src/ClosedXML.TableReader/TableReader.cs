@@ -1,13 +1,11 @@
-﻿using System;
+﻿using ClosedXML.TableReader.Attributes;
+using ClosedXML.TableReader.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using ClosedXML.TableReader.Attributes;
-using ClosedXML.TableReader.Model;
 
 // ReSharper disable once CheckNamespace
 namespace ClosedXML.Excel
@@ -89,7 +87,7 @@ namespace ClosedXML.Excel
             options = options ?? ReadOptions.DefaultOptions;
 
 
-            //primera fila de titulos
+            //primera fila de títulos
             bool firstRow = options.TitlesInFirstRow;
             dt.TableName = workSheet.GetNameForDataTable();
 
@@ -102,8 +100,13 @@ namespace ClosedXML.Excel
                 }
             }
 
+            Func<IXLRow, bool> getRows = _ => true;
+            if (options.RowStart != 0)
+            {
+                getRows = (r) => (r.RowNumber() >= options.RowStart);
+            }
 
-            foreach (IXLRow row in workSheet.RowsUsed())
+            foreach (IXLRow row in workSheet.RowsUsed(r => getRows(r)))
             {
                 //Usamos la primera fila para crear las columnas con los títulos
                 //init with options.TitlesInFirstRow 
@@ -194,6 +197,17 @@ namespace ClosedXML.Excel
 
                         var fieldName = GetFieldNameFromCustomAttribute();
 
+                        object ChangeType(object value, Type t)
+                        {
+                            if (t.IsGenericType && t.GetGenericTypeDefinition().Equals(typeof(Nullable<>)))
+                            {
+                                if (value == null) return null;
+                                t = Nullable.GetUnderlyingType(t);
+                            }
+
+                            return Convert.ChangeType(value, (Type)t);
+                        }
+
 
                         //parseamos las celdas vacías que no contienen cadenas
                         var objValue = row[fieldName];
@@ -204,12 +218,11 @@ namespace ClosedXML.Excel
                         {
                             var exp = options.Converters[p.Name];
                             var f = exp.Compile();
-                            p.SetValue(obj, Convert.ChangeType(f.DynamicInvoke(objValue), p.PropertyType), null);
+                            p.SetValue(obj, ChangeType(f.DynamicInvoke(objValue), p.PropertyType), null);
                         }
                         else
                         {
-                            p.SetValue(obj,
-                                Convert.ChangeType(objValue, p.PropertyType), null);
+                            p.SetValue(obj, ChangeType(objValue, p.PropertyType), null);
                         }
 
 
