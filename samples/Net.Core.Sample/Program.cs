@@ -22,11 +22,7 @@ namespace Net.Core.Sample
             var s = GetExcelPath();
             var bytes = GetExcel(s);
             var wb = new ClosedXML.Excel.XLWorkbook(new MemoryStream(bytes));
-
-            byte[] file = System.IO.File.ReadAllBytes([ExcelPath])
-
-            var wb = new ClosedXML.Excel.XLWorkbook(new MemoryStream(file));
-
+            
             IEnumerable<SimpleTable> data = wb.ReadTable<SimpleTable>(1);
 
 

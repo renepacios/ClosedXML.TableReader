@@ -17,10 +17,14 @@ namespace ClosedXML.TableReader.Model
         /// </summary>
         public static ReadOptions DefaultOptions => new ReadOptions()
         {
-            TitlesInFirstRow = true
+            TitlesInFirstRow = true,
+            RowStart=0
+
         };
 
         public bool TitlesInFirstRow { get; set; }
+        //number row of content table
+        public int RowStart { get; set; }
 
         public Dictionary<string, LambdaExpression> Converters { get; set; }
     }
