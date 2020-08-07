@@ -13,9 +13,9 @@
     <RepositoryUrl></RepositoryUrl>
     <PackageProjectUrl>https://github.com/rene15009/ClosedXML.TableReader</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/rene15009/ClosedXML.TableReader/blob/master/LICENSE</PackageLicenseUrl>
-    <AssemblyVersion>1.1.0.0</AssemblyVersion>
-    <FileVersion>1.1.0.0</FileVersion>
-    <Version>1.1.1</Version>
+    <AssemblyVersion>1.2.0.0</AssemblyVersion>
+    <FileVersion>1.2.0.0</FileVersion>
+    <Version>1.2.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
