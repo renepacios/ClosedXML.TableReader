@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6B3018FD-0FB5-4B5C-BCDC-3DF57470FDAC}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ClosedXML.TrableReader", "ClosedXML.TrableReader", "{61D3B43B-5044-4364-B6A6-739A7B00316C}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{788460CA-19FC-4883-88BF-1480F4A68E2A}"
 	ProjectSection(SolutionItems) = preProject
 		docs\Notes.md = docs\Notes.md
@@ -17,7 +15,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".settings", ".settings", "{
 		.editorconfig = .editorconfig
 		.gitattributes = .gitattributes
 		.gitignore = .gitignore
-		appveyor.yml = appveyor.yml
 		LICENSE = LICENSE
 		README.md = README.md
 	EndProjectSection
@@ -27,6 +24,24 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Net.Core.Sample", "samples\Net.Core.Sample\Net.Core.Sample.csproj", "{DCE9FFEE-3683-4054-908E-406BC285DFE4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClosedXML.TableReader", "src\ClosedXML.TableReader\ClosedXML.TableReader.csproj", "{E016F8B1-FB18-4E00-A476-6B5CA0EFB01A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassicWinFormsApplication", "samples\ClassicWinFormsApplication\ClassicWinFormsApplication.csproj", "{C47ECD2A-2E6C-4EF5-8FD3-660BDFC3548A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{CF6F308B-90E6-46C9-98E7-2D494ED307DB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClosedXML.TableReader.Test", "tests\ClosedXML.TableReader.Test\ClosedXML.TableReader.Test.csproj", "{19E0026C-521B-4F0B-8D54-BE62F265ACE1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D3DDAA27-ED13-4135-B274-19DA8062FFD9}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{F156968C-08CF-4FA4-B59D-3E20762DE73F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{520B078F-4018-493D-90B3-C1C4F23DE1CD}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\build-and-nuget-publish.yml = .github\workflows\build-and-nuget-publish.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,14 +57,24 @@ Global
 		{E016F8B1-FB18-4E00-A476-6B5CA0EFB01A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E016F8B1-FB18-4E00-A476-6B5CA0EFB01A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E016F8B1-FB18-4E00-A476-6B5CA0EFB01A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C47ECD2A-2E6C-4EF5-8FD3-660BDFC3548A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C47ECD2A-2E6C-4EF5-8FD3-660BDFC3548A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C47ECD2A-2E6C-4EF5-8FD3-660BDFC3548A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C47ECD2A-2E6C-4EF5-8FD3-660BDFC3548A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19E0026C-521B-4F0B-8D54-BE62F265ACE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19E0026C-521B-4F0B-8D54-BE62F265ACE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19E0026C-521B-4F0B-8D54-BE62F265ACE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19E0026C-521B-4F0B-8D54-BE62F265ACE1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{61D3B43B-5044-4364-B6A6-739A7B00316C} = {6B3018FD-0FB5-4B5C-BCDC-3DF57470FDAC}
 		{DCE9FFEE-3683-4054-908E-406BC285DFE4} = {A2BADE48-BF14-4A99-B18A-DCE8748D38AB}
-		{E016F8B1-FB18-4E00-A476-6B5CA0EFB01A} = {61D3B43B-5044-4364-B6A6-739A7B00316C}
+		{E016F8B1-FB18-4E00-A476-6B5CA0EFB01A} = {6B3018FD-0FB5-4B5C-BCDC-3DF57470FDAC}
+		{C47ECD2A-2E6C-4EF5-8FD3-660BDFC3548A} = {A2BADE48-BF14-4A99-B18A-DCE8748D38AB}
+		{19E0026C-521B-4F0B-8D54-BE62F265ACE1} = {CF6F308B-90E6-46C9-98E7-2D494ED307DB}
+		{520B078F-4018-493D-90B3-C1C4F23DE1CD} = {F156968C-08CF-4FA4-B59D-3E20762DE73F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {497ADF93-475B-4051-9E75-34F2642292C7}

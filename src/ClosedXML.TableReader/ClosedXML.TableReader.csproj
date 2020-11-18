@@ -12,10 +12,11 @@
     <PackageTags>ClosedXML Table Read .NET Standard</PackageTags>
     <RepositoryUrl></RepositoryUrl>
     <PackageProjectUrl>https://github.com/rene15009/ClosedXML.TableReader</PackageProjectUrl>
-    <PackageLicenseUrl>https://github.com/rene15009/ClosedXML.TableReader/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageLicenseUrl></PackageLicenseUrl>
     <AssemblyVersion>1.2.0.0</AssemblyVersion>
     <FileVersion>1.2.0.0</FileVersion>
     <Version>1.2.0</Version>
+    <PackageLicenseExpression>The MIT License (MIT)</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>

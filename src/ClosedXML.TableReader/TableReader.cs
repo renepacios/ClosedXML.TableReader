@@ -199,7 +199,7 @@ namespace ClosedXML.Excel
 
                         object ChangeType(object value, Type t)
                         {
-                            if (t.IsGenericType && t.GetGenericTypeDefinition().Equals(typeof(Nullable<>)))
+                            if (t.IsGenericType && t.GetGenericTypeDefinition() == typeof(Nullable<>))
                             {
                                 if (value == null) return null;
                                 t = Nullable.GetUnderlyingType(t);
@@ -211,7 +211,12 @@ namespace ClosedXML.Excel
 
                         //parseamos las celdas vacías que no contienen cadenas
                         var objValue = row[fieldName];
-                        if (objValue == System.DBNull.Value) objValue = string.Empty;
+                        if (objValue == System.DBNull.Value){ objValue = string.Empty;}
+
+                        //dejamos valores por defecto en caso de no poder obtener el valor. Así mejor soporte a los nulables
+                        if (string.IsNullOrEmpty(objValue as string) && p.PropertyType!=typeof(string)) continue;
+                        
+                        
 
                         //Converters to parse data to typed field
                         if (options?.Converters != null && options.Converters.Any() && options.Converters.ContainsKey(p.Name))

@@ -1,14 +1,11 @@
-﻿using System;
+﻿using ClosedXML.Excel;
+using ClosedXML.TableReader.Model;
+using Net.Core.Sample.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
-using ClosedXML.Excel;
-using ClosedXML.TableReader;
-using ClosedXML.TableReader.Model;
-using DocumentFormat.OpenXml.Drawing;
-using DocumentFormat.OpenXml.Drawing.Diagrams;
-using Net.Core.Sample.Models;
 using Path = System.IO.Path;
 
 namespace Net.Core.Sample
@@ -22,7 +19,7 @@ namespace Net.Core.Sample
             var s = GetExcelPath();
             var bytes = GetExcel(s);
             var wb = new ClosedXML.Excel.XLWorkbook(new MemoryStream(bytes));
-            
+
             IEnumerable<SimpleTable> data = wb.ReadTable<SimpleTable>(1);
 
 
@@ -49,6 +46,9 @@ namespace Net.Core.Sample
                         {nameof(TableWithHeadersAndBoleanConversion.Selected),fSelectToBool },
                     }
                 });
+
+            wb.Dispose();
+
 
 
             Console.WriteLine(ls.ToList().Count);
