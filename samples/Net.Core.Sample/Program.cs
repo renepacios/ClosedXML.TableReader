@@ -49,56 +49,11 @@ namespace Net.Core.Sample
 
             wb.Dispose();
 
-            ImportPersonas();
 
 
             Console.WriteLine(ls.ToList().Count);
 
             Console.ReadLine();
-        }
-
-
-
-        private static void ImportPersonas()
-        {
-            var s = GetExcelPath("ExcelPrueba.xlsx");
-            var bytes = GetExcel(s);
-            var wb = new ClosedXML.Excel.XLWorkbook(new MemoryStream(bytes));
-
-
-            Expression<Func<string, Guid>> fConvertGuid = d => Guid.Parse(d);
-            Expression<Func<string, Guid>> fConvertGuidNullable = d => d != null ? Guid.Parse(d) : Guid.Empty;
-            Expression<Func<string, bool>> fSelectTBool = c => c == "1";
-            Expression<Func<string, int?>> fSexo = sexoString => string.IsNullOrEmpty(sexoString)
-                ? (int?)null
-                : sexoString.ToLower() == "femenino"
-                    ? 1
-                    : 0;
-
-            IEnumerable<PersonaImportada> personasImportadas = wb.ReadTable<PersonaImportada>(2
-                , new ReadOptions()
-                {
-                    TitlesInFirstRow = true,
-                    Converters = new Dictionary<string, LambdaExpression>()
-                    {
-                        {nameof(PersonaImportada.IdFuac), fConvertGuid},
-                        {nameof(PersonaImportada.TipoDocumentoId), fConvertGuidNullable},
-                        {nameof(PersonaImportada.TipoViaId), fConvertGuidNullable},
-                        {nameof(PersonaImportada.TelefonoMovilAdmiteSms), fSelectTBool},
-                        {nameof(PersonaImportada.RecibirBoletin), fSelectTBool},
-                        {nameof(PersonaImportada.AceptoPoliticas), fSelectTBool},
-                        {nameof(PersonaImportada.Bloqueado), fSelectTBool},
-                        {nameof(PersonaImportada.SexoStr),fSexo}
-                    }
-                });
-
-
-            foreach (var personasImportada in personasImportadas)
-            {
-                ObjectDumper.ObjectDumperExtensions.DumpToString(personasImportada, "persona");
-            }
-
-            wb.Dispose();
         }
 
 
