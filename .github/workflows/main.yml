@@ -2,9 +2,9 @@ name: Buid & Publish
 
 on:
   push:
-   branches: [ master ]
-  pull_request:
-    branches: [ master ]
+   branches: [ no-action ] # <- TODO: Cambiar
+  #pull_request:
+  #  branches: [ master ]
 
 
 
