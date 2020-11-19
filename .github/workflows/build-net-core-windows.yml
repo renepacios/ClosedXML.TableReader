@@ -18,7 +18,7 @@ jobs:
       with:
         dotnet-version: 3.1.301
     - name: Install dependencies
-      run: dotnet restore
+      run: dotnet restore ClosedXML.TableReader.WithWinFormsApplication.sln
     - name: Build
       run: dotnet build ClosedXML.TableReader.WithWinFormsApplication.sln --configuration Release --no-restore
     - name: Test
