@@ -15,6 +15,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".settings", ".settings", "{
 		.editorconfig = .editorconfig
 		.gitattributes = .gitattributes
 		.gitignore = .gitignore
+		dependencies.props = dependencies.props
+		Directory.Build.props = Directory.Build.props
 		LICENSE = LICENSE
 		README.md = README.md
 	EndProjectSection
@@ -25,16 +27,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Net.Core.Sample", "samples\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClosedXML.TableReader", "src\ClosedXML.TableReader\ClosedXML.TableReader.csproj", "{E016F8B1-FB18-4E00-A476-6B5CA0EFB01A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassicWinFormsApplication", "samples\ClassicWinFormsApplication\ClassicWinFormsApplication.csproj", "{C47ECD2A-2E6C-4EF5-8FD3-660BDFC3548A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassicWinFormsApplication", "samples\ClassicWinFormsApplication\ClassicWinFormsApplication.csproj", "{C47ECD2A-2E6C-4EF5-8FD3-660BDFC3548A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{CF6F308B-90E6-46C9-98E7-2D494ED307DB}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClosedXML.TableReader.Test", "tests\ClosedXML.TableReader.Test\ClosedXML.TableReader.Test.csproj", "{19E0026C-521B-4F0B-8D54-BE62F265ACE1}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D3DDAA27-ED13-4135-B274-19DA8062FFD9}"
-	ProjectSection(SolutionItems) = preProject
-		.editorconfig = .editorconfig
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{F156968C-08CF-4FA4-B59D-3E20762DE73F}"
 EndProject

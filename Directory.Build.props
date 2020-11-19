@@ -1,0 +1,32 @@
+﻿<Project>
+    <Import Project="dependencies.props" />
+    <PropertyGroup>
+        <Version>1.2.1</Version>
+        <FileVersion>$(Version).0</FileVersion>
+        <AssemblyVersion>$(Version).0</AssemblyVersion>
+       
+        <Authors>René Pacios</Authors>
+        <Company>www.WebRene.es</Company>  
+        <Copyright>Copyright © $(Company)- $(Authors)   2018 - $([System.DateTime]::Now.Year)</Copyright>
+       
+        <NeutralLanguage>en</NeutralLanguage>
+        <Product>ClosedXML TableReader</Product>
+        <Description>ClosedXML TableReader is a ClosedXML extension to read Excel tables to dotnet dataTable or generic typed collection</Description>
+        <PackageTags>ClosedXML Table Read .NET Standard Excel</PackageTags>
+        
+        <RepositoryUrl>https://github.com/rene15009/ClosedXML.TableReader</RepositoryUrl>
+        <PackageProjectUrl>https://github.com/rene15009/ClosedXML.TableReader</PackageProjectUrl>
+
+        <License>MIT</License>
+        <PackageLicenseExpression>$(License)</PackageLicenseExpression>
+      
+    </PropertyGroup>
+    <!--<PropertyGroup>
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>-->
+
+    <PropertyGroup>
+        <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+        <WarningsAsErrors></WarningsAsErrors>
+    </PropertyGroup>
+</Project>

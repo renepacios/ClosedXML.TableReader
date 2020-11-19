@@ -2,13 +2,19 @@ name: Build .NET Core Windows
 
 on:
   push:
-   branches: [ master ]
-  pull_request:
-    branches: [ master ]
+   branches: 
+   - develop
+   - release/*
+   - feature/*
+   - fix/*
 
 jobs:
   build:
+    env:
+        BUILD_CONFIG: Release
+        PROJECT_NAME: ClosedXML.TableReader.WithWinFormsApplication.sln
 
+    name: Build Start
     runs-on: windows-latest
 
     steps:
@@ -18,8 +24,8 @@ jobs:
       with:
         dotnet-version: 3.1.301
     - name: Install dependencies
-      run: dotnet restore ClosedXML.TableReader.WithWinFormsApplication.sln
+      run: dotnet restore $PROJECT_NAME
     - name: Build
-      run: dotnet build ClosedXML.TableReader.WithWinFormsApplication.sln --configuration Release --no-restore
+      run: dotnet build  $PROJECT_NAME --configuration $BUILD_CONFIG --no-restore
     - name: Test
-      run: dotnet test ClosedXML.TableReader.WithWinFormsApplication.sln --no-restore --verbosity normal
+      run: dotnet test $PROJECT_NAME --no-restore --verbosity normal

@@ -2,12 +2,16 @@ name: Build .NET Core
 
 on:
   push:
-  # branches: [ master ]
+   branches: [ master ]
   
 
 jobs:
   build:
-
+    env:
+        BUILD_CONFIG: Release
+        PROJECT_NAME: ClosedXML.TableReader.sln
+    
+    name: Build Startart
     runs-on: ubuntu-latest
 
     steps:
@@ -17,10 +21,8 @@ jobs:
       with:
         dotnet-version: 3.1.301
     - name: Install dependencies
-      run: dotnet restore ClosedXML.TableReader.sln
+      run: dotnet restore $PROJECT_NAME
     - name: Build
-      run: dotnet build ClosedXML.TableReader.sln --configuration Release --no-restore
+      run: dotnet build  $PROJECT_NAME --configuration $BUILD_CONFIG --no-restore
     - name: Test
-      run: dotnet test ClosedXML.TableReader.sln --no-restore --verbosity normal
-    
-       
+      run: dotnet test $PROJECT_NAME --no-restore --verbosity normal
