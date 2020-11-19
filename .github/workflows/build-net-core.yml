@@ -1,15 +1,14 @@
-name: .NET Core
+name: Build .NET Core
 
 on:
   push:
-   # branches: [ master ]
-  pull_request:
-    branches: [ master ]
+  # branches: [ master ]
+  
 
 jobs:
   build:
 
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
@@ -20,6 +19,8 @@ jobs:
     - name: Install dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build --configuration Release --no-restore
+      run: dotnet build ClosedXML.TableReader.sln --configuration Release --no-restore
     - name: Test
-      run: dotnet test --no-restore --verbosity normal
+      run: dotnet test ClosedXML.TableReader.sln --no-restore --verbosity normal
+    
+       
