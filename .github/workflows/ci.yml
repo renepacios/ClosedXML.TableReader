@@ -1,9 +1,14 @@
-name: Upload to NuGet
+name: Continous Integration
 
 on:
-  push:
-    tags:
-    - v*
+    push:
+        branches:
+          - develop  
+          - release/*
+          - feature/*
+          - fix/*
+
+
 
 jobs:
   build:
@@ -34,16 +39,3 @@ jobs:
       run: dotnet test $TEST_PROJECT_PATH --no-restore --verbosity normal
     - name: Build 
       run: dotnet build $PROJECT_PATH --configuration $BUILD_CONFIG --no-restore 
-
-    - name: dotnet pack [$PROJECT_NAME]
-      run: dotnet pack $PROJECT_PATH -c $BUILD_CONFIG --no-build --include-source --include-symbols -o ./artifacts
-
-    #- name: setup nuget
-    #  uses: NuGet/setup-nuget@v1.0.2
-    #  with:
-    #    nuget-version: latest
-
-    - name: Publish NuGet 
-      run: dotnet nuget push ./artifacts/*.nupkg -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json --skip-duplicate
-
-    

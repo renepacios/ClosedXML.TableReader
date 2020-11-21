@@ -35,9 +35,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{F156
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{520B078F-4018-493D-90B3-C1C4F23DE1CD}"
 	ProjectSection(SolutionItems) = preProject
-		.github\workflows\build-net-core-windows.yml = .github\workflows\build-net-core-windows.yml
 		.github\workflows\build-net-core.yml = .github\workflows\build-net-core.yml
-		.github\workflows\main.yml = .github\workflows\main.yml
+		.github\workflows\ci-windows.yml = .github\workflows\ci-windows.yml
+		.github\workflows\ci.yml = .github\workflows\ci.yml
 		.github\workflows\nuget.yml = .github\workflows\nuget.yml
 	EndProjectSection
 EndProject

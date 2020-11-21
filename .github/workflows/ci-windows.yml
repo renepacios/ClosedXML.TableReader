@@ -1,4 +1,4 @@
-name: Build .NET Core Windows
+name: CI .NET Core Windows
 
 on:
   push:
