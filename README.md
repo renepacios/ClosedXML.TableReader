@@ -29,7 +29,7 @@ Help doc can be found at [https://github.com/rene15009/ClosedXML.TableReader/wik
 ClosedXML.TableReader is licensed under The MIT License (MIT), check the [LICENSE](https://github.com/rene15009/ClosedXML.TableReader/blob/master/LICENSE) file for details.
 
 #### Version
-1.0.0.1
+1.3.0
 #### Development
 C# 
 
