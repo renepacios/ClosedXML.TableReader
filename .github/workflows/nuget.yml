@@ -46,10 +46,10 @@ jobs:
     - name: dotnet pack [Balea.Api.Store]
       run: dotnet pack $PROJECT_PATH -c $BUILD_CONFIG --no-build --include-source --include-symbols -o ./artifacts
 
-    - name: setup nuget
-      uses: NuGet/setup-nuget@v1.0.2
-      with:
-        nuget-version: latest
+    #- name: setup nuget
+    #  uses: NuGet/setup-nuget@v1.0.2
+    #  with:
+    #    nuget-version: latest
 
     - name: Publish NuGet 
       run: dotnet nuget push ./artifacts/*.nupkg -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json --skip-duplicate
