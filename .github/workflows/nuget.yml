@@ -40,8 +40,8 @@ jobs:
       run: dotnet restore $SOLUTION_NAME
     - name: Test - [FuncionalTest]
       run: dotnet test $TEST_PROJECT_PATH --no-restore --verbosity normal
-    - name: Build Nuget Package
-      run: dotnet pack  $PROJECT_PATH --configuration $BUILD_CONFIG --no-restore --include-source --include-symbols -o ./artifacts
+    - name: Build 
+      run: dotnet build $PROJECT_PATH --configuration $BUILD_CONFIG --no-restore 
     
 
     - name: Publish NuGet
