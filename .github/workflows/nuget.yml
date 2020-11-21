@@ -14,24 +14,31 @@ jobs:
   build:
     env:
         BUILD_CONFIG: Release
-        PROJECT_NAME: ClosedXML.TableReader.sln
+        PROJECT_NAME: ClosedXML.TableReader
 
 
     name: Build Start
     runs-on: ubuntu-latest
 
     steps:
+    - name: Set env. aux vars
+      run: |
+        echo ::set-env name=SOLUTION_NAME::${{ env.PROJECT_NAME }}.sln
+        echo ::set-env name=TEST_PROJECT_PATH::src/${{ env.PROJECT_NAME }}.Test.csproj
+        echo ::set-env name=PROJECT_PATH::src/${{ env.PROJECT_NAME }}.csproj
+
     - uses: actions/checkout@v2
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.301
-    - name: Install dependencies
-      run: dotnet restore $PROJECT_NAME
-    - name: Build
-      run: dotnet build  $PROJECT_NAME --configuration $BUILD_CONFIG --no-restore
-    - name: Test
-      run: dotnet test $PROJECT_NAME --no-restore --verbosity normal
+    - name: Install dependencies                
+      run: dotnet restore $SOLUTION_NAME
+    - name: Test - [FuncionalTest]
+      run: dotnet test $TEST_PROJECT_PATH --no-restore --verbosity normal
+    - name: Build Nuget Package
+      run: dotnet pack  $PROJECT_PATH --configuration $BUILD_CONFIG --no-restore --include-source --include-symbols -o ./artifacts
+    
 
     - name: Publish NuGet
       # You may pin to the exact commit or the version.
@@ -39,7 +46,7 @@ jobs:
       uses: brandedoutcast/publish-nuget@v2.5.5
       with:
         # Filepath of the project to be packaged, relative to root of repository
-        PROJECT_FILE_PATH: ClosedXML.TableReader.csproj
+        PROJECT_FILE_PATH: $PROJECT_PATH
        
           
         # NuGet package id, used for version detection & defaults to project name
