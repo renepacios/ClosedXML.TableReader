@@ -43,7 +43,7 @@ jobs:
     - name: Build 
       run: dotnet build $PROJECT_PATH --configuration $BUILD_CONFIG --no-restore 
 
-    - name: dotnet pack [Balea.Api.Store]
+    - name: dotnet pack [$PROJECT_NAME]
       run: dotnet pack $PROJECT_PATH -c $BUILD_CONFIG --no-build --include-source --include-symbols -o ./artifacts
 
     #- name: setup nuget
