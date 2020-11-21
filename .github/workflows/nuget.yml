@@ -23,9 +23,13 @@ jobs:
     steps:
     - name: Set env. aux vars
       run: |
-        echo ::set-env name=SOLUTION_NAME::${{ env.PROJECT_NAME }}.sln
-        echo ::set-env name=TEST_PROJECT_PATH::src/${{ env.PROJECT_NAME }}.Test.csproj
-        echo ::set-env name=PROJECT_PATH::src/${{ env.PROJECT_NAME }}.csproj
+        echo "{PROJECT_NAME}.sln">> $SOLUTION_NAME
+        echo "src/{PROJECT_NAME}.Test.csproj" >> $TEST_PROJECT_PATH
+        echo "src/{PROJECT_NAME}.csproj" >> $PROJECT_PATH
+
+    #echo ::set-env name=SOLUTION_NAME::${{ env.PROJECT_NAME }}.sln
+    #echo ::set-env name=TEST_PROJECT_PATH::src/${{ env.PROJECT_NAME }}.Test.csproj
+    #echo ::set-env name=PROJECT_PATH::src/${{ env.PROJECT_NAME }}.csproj
 
     - uses: actions/checkout@v2
     - name: Setup .NET Core
