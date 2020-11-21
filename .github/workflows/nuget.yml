@@ -23,9 +23,9 @@ jobs:
     steps:
     - name: Set env. aux vars
       run: |
-        echo "SOLUTION_NAME={PROJECT_NAME}.sln">> $GITHUB_ENV
-        echo "TEST_PROJECT_PATH=src/{PROJECT_NAME}.Test.csproj" >> $GITHUB_ENV
-        echo "PROJECT_PATH=src/{PROJECT_NAME}.csproj" >> $GITHUB_ENV
+        echo "SOLUTION_NAME=${PROJECT_NAME}.sln">> $GITHUB_ENV
+        echo "TEST_PROJECT_PATH=src/${PROJECT_NAME}.Test.csproj" >> $GITHUB_ENV
+        echo "PROJECT_PATH=src/${PROJECT_NAME}.csproj" >> $GITHUB_ENV
 
     #echo ::set-env name=SOLUTION_NAME::${{ env.PROJECT_NAME }}.sln
     #echo ::set-env name=TEST_PROJECT_PATH::src/${{ env.PROJECT_NAME }}.Test.csproj
