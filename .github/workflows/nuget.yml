@@ -1,4 +1,4 @@
-name: Test Buid & Publish
+name: Upload to NuGet
 
 on:
   workflow_dispatch:
