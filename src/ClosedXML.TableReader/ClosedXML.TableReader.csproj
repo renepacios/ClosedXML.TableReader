@@ -1,40 +1,46 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <Authors>René Pacios</Authors>
-    <Company>www.WebRene.es</Company>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <NeutralLanguage>en</NeutralLanguage>
-    <Product>ClosedXML TableReader</Product>
-    <Description>ClosedXML TableReader is a ClosedXML extension to read Excel tables to dotnet dataTable or generic typed collection</Description>
-    <Copyright>Copyright 2018</Copyright>
-    <PackageTags>ClosedXML Table Read .NET Standard</PackageTags>
-    <RepositoryUrl></RepositoryUrl>
-    <PackageProjectUrl>https://github.com/rene15009/ClosedXML.TableReader</PackageProjectUrl>
-    <PackageLicenseUrl></PackageLicenseUrl>
-    <AssemblyVersion>1.2.0.0</AssemblyVersion>
-    <FileVersion>1.2.0.0</FileVersion>
-    <Version>1.2.0</Version>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>$(NetStandardTargetVersion)</TargetFramework>
+       
+        
+        <Authors>$(Authors)</Authors>
+        <Company>$(Company)</Company>
+           <Copyright>$(Copyright)</Copyright>
 
-  <ItemGroup>
-    <Compile Remove="ExcelReader.cs" />
-  </ItemGroup>
+        <NeutralLanguage>$(NeutralLanguage)</NeutralLanguage>
+        <Product>$(Product)</Product>
+        <Description>$(Description)</Description>
+        <PackageTags>$(PackageTags)</PackageTags>
+        <RepositoryUrl>$(RepositoryUrl)</RepositoryUrl>
+        <PackageProjectUrl>$(PackageProjectUrl)</PackageProjectUrl>
+        <AssemblyVersion>$(AssemblyVersion)</AssemblyVersion>
+        <FileVersion>$(FileVersion)</FileVersion>
+        <Version>$(Version)</Version>
+        <PackageLicenseExpression>$(PackageLicenseExpression)</PackageLicenseExpression> 
+        
+       
+        
+        <PackageId>ClosedXML.TableReader</PackageId> 
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild> 
+    </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="Exceptions\" />
-  </ItemGroup>
+    <ItemGroup>
+        <Compile Remove="ExcelReader.cs" />
+    </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="ClosedXML" Version="0.92.1" />
-  </ItemGroup>
+    <ItemGroup>
+        <Folder Include="Exceptions\" />
+    </ItemGroup>
 
-  <ItemGroup>
-    <Reference Include="ClosedXML">
-      <HintPath>..\packages\ClosedXML.0.91.0\lib\net452\ClosedXML.dll</HintPath>
-    </Reference>
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="ClosedXML" Version="$(ClosedXML)" />
+    </ItemGroup>
+
+    <!--<ItemGroup>
+        <Reference Include="ClosedXML">
+            <HintPath>..\packages\ClosedXML.0.91.0\lib\net452\ClosedXML.dll</HintPath>
+        </Reference>
+    </ItemGroup>-->
 
 </Project>

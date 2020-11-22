@@ -1,0 +1,49 @@
+name: Upload to NuGet
+
+on:
+  push:
+    tags:
+    - v*
+
+jobs:
+  build:
+    env:
+        BUILD_CONFIG: Release
+        PROJECT_NAME: ClosedXML.TableReader
+
+
+    name: Build Start
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Set env. aux vars
+      run: |
+        echo "SOLUTION_NAME=${PROJECT_NAME}.sln">> $GITHUB_ENV
+        echo "TEST_PROJECT_PATH=tests/${PROJECT_NAME}.Test/${PROJECT_NAME}.Test.csproj" >> $GITHUB_ENV
+        echo "PROJECT_PATH=src/${PROJECT_NAME}/${PROJECT_NAME}.csproj" >> $GITHUB_ENV
+ 
+
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.301
+    - name: Install dependencies                
+      run: dotnet restore $SOLUTION_NAME
+    - name: Test - [FuncionalTest]
+      run: dotnet test $TEST_PROJECT_PATH --no-restore --verbosity normal
+    - name: Build 
+      run: dotnet build $PROJECT_PATH --configuration $BUILD_CONFIG --no-restore 
+
+    - name: dotnet pack [$PROJECT_NAME]
+      run: dotnet pack $PROJECT_PATH -c $BUILD_CONFIG --no-build --include-source --include-symbols -o ./artifacts
+
+    #- name: setup nuget
+    #  uses: NuGet/setup-nuget@v1.0.2
+    #  with:
+    #    nuget-version: latest
+
+    - name: Publish NuGet 
+      run: dotnet nuget push ./artifacts/*.nupkg -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json --skip-duplicate
+
+    

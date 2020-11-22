@@ -1,0 +1,32 @@
+name: Build .NET Core
+
+on:
+  push:
+   branches:
+   - develop
+   - release/*
+   - feature/*
+   - fix/*
+  
+
+jobs:
+  build:
+    env:
+        BUILD_CONFIG: Release
+        PROJECT_NAME: ClosedXML.TableReader.sln
+    
+    name: Build Startart
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.301
+    - name: Install dependencies
+      run: dotnet restore $PROJECT_NAME
+    - name: Build
+      run: dotnet build  $PROJECT_NAME --configuration $BUILD_CONFIG --no-restore
+    - name: Test
+      run: dotnet test $PROJECT_NAME --no-restore --verbosity normal
