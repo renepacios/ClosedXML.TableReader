@@ -1,4 +1,4 @@
-name: Continous Integration
+name: CI .NET Core
 
 on:
     push:
