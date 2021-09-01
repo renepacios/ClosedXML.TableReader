@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <TargetFramework>$(NetStandardTargetVersion)</TargetFramework>
@@ -26,11 +26,13 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Remove="ExcelReader.cs" />
+      <Compile Remove="Exceptions\**" />
+      <EmbeddedResource Remove="Exceptions\**" />
+      <None Remove="Exceptions\**" />
     </ItemGroup>
 
     <ItemGroup>
-        <Folder Include="Exceptions\" />
+        <Compile Remove="ExcelReader.cs" />
     </ItemGroup>
 
     <ItemGroup>
