@@ -1,36 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq.Expressions;
 
-namespace ClosedXML.TableReader.Model
+namespace ClosedXML.TableReader.Model;
+
+public class ReadOptions
 {
-    public class ReadOptions
+    /// <summary> Genera opciones por defecto si no se indican al consumir la librería </summary>
+    public static ReadOptions DefaultOptions => new()
     {
+        TitlesInFirstRow = true,
+        RowStart = 0,
+    };
 
-        public ReadOptions()
-        {
-            Converters = new Dictionary<string, LambdaExpression>();
-        }
+    public bool TitlesInFirstRow { get; set; }
 
-        /// <summary>
-        /// Genera opciones por defecto si no se indican al consumir la librería
-        /// </summary>
-        public static ReadOptions DefaultOptions => new ReadOptions()
-        {
-            TitlesInFirstRow = true,
-            RowStart=0
+    //number row of content table
+    public int RowStart { get; set; }
 
-        };
-
-        public bool TitlesInFirstRow { get; set; }
-        //number row of content table
-        public int RowStart { get; set; }
-
-        public Dictionary<string, LambdaExpression> Converters { get; set; }
-    }
-
-
-
-
-
+    public Dictionary<string, LambdaExpression> Converters { get; set; } = new();
 }

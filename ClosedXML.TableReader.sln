@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30204.135
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35424.110 d17.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6B3018FD-0FB5-4B5C-BCDC-3DF57470FDAC}"
 EndProject
@@ -15,8 +15,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".settings", ".settings", "{
 		.editorconfig = .editorconfig
 		.gitattributes = .gitattributes
 		.gitignore = .gitignore
-		dependencies.props = dependencies.props
 		Directory.Build.props = Directory.Build.props
+		Directory.Packages.props = Directory.Packages.props
 		LICENSE = LICENSE
 		README.md = README.md
 	EndProjectSection
