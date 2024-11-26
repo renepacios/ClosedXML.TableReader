@@ -1,48 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-    <PropertyGroup>
-        <TargetFramework>$(NetStandardTargetVersion)</TargetFramework>
-       
-        
-        <Authors>$(Authors)</Authors>
-        <Company>$(Company)</Company>
-           <Copyright>$(Copyright)</Copyright>
+  <PropertyGroup>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <PackageId>ClosedXML.TableReader</PackageId>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
 
-        <NeutralLanguage>$(NeutralLanguage)</NeutralLanguage>
-        <Product>$(Product)</Product>
-        <Description>$(Description)</Description>
-        <PackageTags>$(PackageTags)</PackageTags>
-        <RepositoryUrl>$(RepositoryUrl)</RepositoryUrl>
-        <PackageProjectUrl>$(PackageProjectUrl)</PackageProjectUrl>
-        <AssemblyVersion>$(AssemblyVersion)</AssemblyVersion>
-        <FileVersion>$(FileVersion)</FileVersion>
-        <Version>$(Version)</Version>
-        <PackageLicenseExpression>$(PackageLicenseExpression)</PackageLicenseExpression> 
-        
-       
-        
-        <PackageId>ClosedXML.TableReader</PackageId> 
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild> 
-    </PropertyGroup>
-
-    <ItemGroup>
-      <Compile Remove="Exceptions\**" />
-      <EmbeddedResource Remove="Exceptions\**" />
-      <None Remove="Exceptions\**" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <Compile Remove="ExcelReader.cs" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <PackageReference Include="ClosedXML" Version="$(ClosedXML)" />
-    </ItemGroup>
-
-    <!--<ItemGroup>
-        <Reference Include="ClosedXML">
-            <HintPath>..\packages\ClosedXML.0.91.0\lib\net452\ClosedXML.dll</HintPath>
-        </Reference>
-    </ItemGroup>-->
+  <ItemGroup>
+    <PackageReference Include="ClosedXML" />
+  </ItemGroup>
 
 </Project>

@@ -8,5 +8,4 @@
     <PropertyGroup Label="Package Versions">
         <ClosedXML>0.92.1</ClosedXML>
     </PropertyGroup>
-
 </Project>
