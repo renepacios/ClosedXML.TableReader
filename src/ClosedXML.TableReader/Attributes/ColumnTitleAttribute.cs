@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.ComponentModel;
 
 namespace ClosedXML.TableReader.Attributes;
 
@@ -9,10 +9,13 @@ namespace ClosedXML.TableReader.Attributes;
 /// </remarks>
 /// </summary>
 [AttributeUsage(AttributeTargets.Property)]
-//[Obsolete("Use DisplayName")]
-internal class ColumnTittleAttribute : Attribute
+internal class ColumnTitleAttribute : DisplayNameAttribute
 {
-    public string Title { get; set; } = string.Empty;
+    public ColumnTitleAttribute()
+    {
+    }
 
-    public ColumnTittleAttribute(string title) => Title = title;
+    public ColumnTitleAttribute(string displayName) : base(displayName)
+    {
+    }
 }

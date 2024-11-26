@@ -1,23 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <ImplicitUsings>enable</ImplicitUsings>
     <PackageId>ClosedXML.TableReader</PackageId>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Remove="Exceptions\**" />
-    <EmbeddedResource Remove="Exceptions\**" />
-    <None Remove="Exceptions\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Remove="ExcelReader.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="ExcelReader.cs" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="ClosedXML" />

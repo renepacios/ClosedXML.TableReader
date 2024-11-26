@@ -1,6 +1,4 @@
 ﻿// ReSharper disable once CheckNamespace
-using System;
-
 namespace ClosedXML.Excel;
 
 public static class ClosedXmlExtensions

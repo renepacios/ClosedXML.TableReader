@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ClosedXML.TableReader.Attributes;
+﻿namespace ClosedXML.TableReader.Attributes;
 
 /// <summary>
 /// Pair property value with data in column with this name
@@ -12,17 +10,8 @@ namespace ClosedXML.TableReader.Attributes;
 /// </remarks>
 /// </summary>
 [AttributeUsage(AttributeTargets.Property)]
-public class ColumnNameAttribute : Attribute
+public class ColumnNameAttribute(string columnName = "") : Attribute
 {
-    public string ColumnName { get; set; }
+    public string ColumnName { get; set; } = columnName;
 
-    public ColumnNameAttribute()
-    {
-        ColumnName = string.Empty;
-    }
-
-    public ColumnNameAttribute(string columnName)
-    {
-        ColumnName = columnName;
-    }
 }

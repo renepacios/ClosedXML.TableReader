@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq.Expressions;
+﻿using System.Linq.Expressions;
 
 namespace ClosedXML.TableReader.Model;
 
@@ -14,8 +13,12 @@ public class ReadOptions
 
     public bool TitlesInFirstRow { get; set; }
 
-    //number row of content table
+    /// <summary> number row of content table </summary>
     public int RowStart { get; set; }
+
+
+    // /// <summary> number row of content table </summary>
+    // public int ColumnStart { get; set; }
 
     public Dictionary<string, LambdaExpression> Converters { get; set; } = new();
 }
